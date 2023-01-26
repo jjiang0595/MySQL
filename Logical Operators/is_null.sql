@@ -1,0 +1,3 @@
+SELECT * FROM books WHERE title IS NULL;
+
+DELETE FROM books WHERE title IS NULL;
