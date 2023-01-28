@@ -23,4 +23,9 @@ JOIN reviews ON reviewers.id = reviews.reviewer_id;
 -- CHALLENGE #4
 
 SELECT title FROM series
-LEFT JOIN reviews on series.id = reviews.series_id WHERE rating is NULL; 
+LEFT JOIN reviews ON series.id = reviews.series_id WHERE rating IS NULL; 
+
+-- CHALLENGE #5
+
+SELECT genre, ROUND(AVG(rating), 2) AS avg_rating FROM series 
+JOIN reviews ON series.id = reviews.series_id GROUP BY genre;
