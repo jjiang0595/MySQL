@@ -42,3 +42,14 @@ SELECT
     IF (COUNT(rating) > 0, 'ACTIVE', 'INACTIVE') AS STATUS
 FROM reviewers 
 LEFT JOIN reviews ON reviewers.id = reviews.reviewer_id GROUP BY first_name, last_name;
+
+-- CHALLENGE #7
+
+SELECT 
+    title, 
+    rating, 
+    CONCAT(first_name, ' ', last_name) AS reviewer
+FROM reviewers
+JOIN reviews ON reviewers.id = reviews.reviewer_id
+JOIN series ON series.id = reviews.series_id
+ORDER BY title;
