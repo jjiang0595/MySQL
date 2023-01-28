@@ -19,3 +19,8 @@ SELECT
     rating 
 FROM reviewers 
 JOIN reviews ON reviewers.id = reviews.reviewer_id;
+
+-- CHALLENGE #4
+
+SELECT title FROM series
+LEFT JOIN reviews on series.id = reviews.series_id WHERE rating is NULL; 
