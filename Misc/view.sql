@@ -8,3 +8,17 @@ CREATE VIEW full_reviews AS
     FROM reviews
     JOIN series ON series.id = reviews.series_id
     JOIN reviewers ON reviewers.id = reviews.reviewer_id;
+
+
+-- replacing and altering views 
+
+CREATE VIEW ordered_series AS
+SELECT * FROM series ORDER BY released_year;
+ 
+CREATE OR REPLACE VIEW ordered_series AS
+SELECT * FROM series ORDER BY released_year DESC;
+ 
+ALTER VIEW ordered_series AS
+SELECT * FROM series ORDER BY released_year;
+ 
+DROP VIEW ordered_series;
