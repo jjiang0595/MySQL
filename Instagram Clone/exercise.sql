@@ -33,3 +33,8 @@ JOIN users ON photos.user_id = users.id
 GROUP BY photos.id
 ORDER BY total DESC
 LIMIT 1;
+
+
+-- CHALLENGE #5
+
+SELECT CEIL((SELECT COUNT(*) FROM photos) / (SELECT COUNT(*) FROM users)) AS AVG; 
