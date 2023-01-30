@@ -38,3 +38,15 @@ LIMIT 1;
 -- CHALLENGE #5
 
 SELECT CEIL((SELECT COUNT(*) FROM photos) / (SELECT COUNT(*) FROM users)) AS AVG; 
+
+
+-- CHALLENGE #6
+
+SELECT 
+    tags.tag_name, 
+    COUNT(*) AS total 
+FROM photo_tags
+JOIN tags ON photo_tags.tag_id = tags.id
+GROUP BY tags.id
+ORDER BY total DESC
+LIMIT 5;
