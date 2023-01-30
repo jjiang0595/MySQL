@@ -50,3 +50,14 @@ JOIN tags ON photo_tags.tag_id = tags.id
 GROUP BY tags.id
 ORDER BY total DESC
 LIMIT 5;
+
+
+-- CHALLENGE #7
+
+SELECT 
+    username, 
+    COUNT(*) AS num_likes 
+FROM users 
+JOIN likes ON users.id = likes.user_id 
+GROUP BY likes.user_id
+HAVING num_likes = (SELECT COUNT(*) FROM photos);
